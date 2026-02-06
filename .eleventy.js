@@ -9,12 +9,23 @@ function slugify(input) {
     .replace(/^-+|-+$/g, "");
 }
 
+function normalizePathPrefix(input) {
+  if (!input || input === "/") return "/";
+  const withLeading = input.startsWith("/") ? input : `/${input}`;
+  return withLeading.endsWith("/") ? withLeading : `${withLeading}/`;
+}
+
 module.exports = function (eleventyConfig) {
+  const pathPrefix = normalizePathPrefix(process.env.ELEVENTY_PATH_PREFIX || "/");
+
   eleventyConfig.addPassthroughCopy("src/styles.css");
+  eleventyConfig.addPassthroughCopy("src/admin");
+  eleventyConfig.addPassthroughCopy("src/uploads");
+  eleventyConfig.addPassthroughCopy("src/.nojekyll");
 
   eleventyConfig.addPlugin(wikiLinksPlugin, {
     collectionName: "wiki",
-    basePath: "/wiki/",
+    basePath: `${pathPrefix}wiki/`,
   });
 
   eleventyConfig.addCollection("wikiCategories", function (collectionApi) {
@@ -70,6 +81,7 @@ module.exports = function (eleventyConfig) {
       data: "_data",
       output: "_site",
     },
+    pathPrefix,
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
   };

@@ -1,0 +1,47 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME
+  branch: main
+  # Required for GitHub Pages deployments. Point this at your OAuth gateway host.
+  base_url: https://YOUR_OAUTH_GATEWAY_DOMAIN
+  auth_endpoint: /api/auth
+
+local_backend: true
+
+# Replace with your actual public Pages URL once deployed.
+site_url: https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME
+
+display_url: https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME
+
+media_folder: "src/uploads"
+public_folder: "/uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "wiki"
+    label: "Wiki Pages"
+    label_singular: "Wiki Page"
+    folder: "src/wiki"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    nested:
+      depth: 5
+      summary: "{{title}}"
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/wiki.njk" }
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        default: ["wiki"]
+      - label: "Categories"
+        name: "categories"
+        widget: "list"
+        required: false
+      - { label: "Permalink", name: "permalink", widget: "string", hint: "/wiki/page-slug/" }
+      - { label: "Body", name: "body", widget: "markdown" }

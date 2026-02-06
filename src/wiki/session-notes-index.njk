@@ -10,7 +10,7 @@ permalink: /wiki/session-notes-index/
 <h2>Sessions</h2>
 <ul>
 {% for entry in collections.sessionNotes %}
-  <li><a href="{{ entry.url }}">{{ entry.data.title }}</a></li>
+  <li><a href="{{ entry.url | url }}">{{ entry.data.title }}</a></li>
 {% endfor %}
 </ul>
 

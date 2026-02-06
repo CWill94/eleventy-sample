@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy"
+    "build": "npx @11ty/eleventy",
+    "cms:proxy": "npx decap-server"
   },
   "keywords": [],
   "author": "",

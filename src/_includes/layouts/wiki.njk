@@ -6,7 +6,7 @@ layout: layouts/base.njk
   {% if categories and categories.length %}
     <p class="meta-row">
       {% for category in categories %}
-        <a class="chip" href="/wiki/category/{{ category | slug }}/">{{ category }}</a>
+        <a class="chip" href="{{ ('/wiki/category/' + (category | slug) + '/') | url }}">{{ category }}</a>
       {% endfor %}
     </p>
   {% endif %}
@@ -18,7 +18,7 @@ layout: layouts/base.njk
     <h2>Linked from</h2>
     <ul>
       {% for entry in incoming %}
-        <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+        <li><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
       {% endfor %}
     </ul>
   {% endif %}

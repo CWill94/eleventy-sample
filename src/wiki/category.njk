@@ -11,6 +11,6 @@ eleventyExcludeFromCollections: true
 <p class="subtle">{{ category.pages.length }} page{% if category.pages.length != 1 %}s{% endif %}</p>
 <ul>
 {% for entry in category.pages %}
-  <li><a href="{{ entry.url }}">{{ entry.data.title }}</a></li>
+  <li><a href="{{ entry.url | url }}">{{ entry.data.title }}</a></li>
 {% endfor %}
 </ul>

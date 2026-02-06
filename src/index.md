@@ -11,7 +11,7 @@ Use `[[Wiki Links]]` inside any page tagged with `wiki`.
 <ul>
 {% for category in collections.wikiCategories %}
   <li>
-    <a href="/wiki/category/{{ category.slug }}/">{{ category.name }}</a>
+    <a href="{{ ('/wiki/category/' + category.slug + '/') | url }}">{{ category.name }}</a>
     <span class="subtle">({{ category.pages.length }})</span>
   </li>
 {% endfor %}
@@ -21,6 +21,6 @@ Use `[[Wiki Links]]` inside any page tagged with `wiki`.
 
 <ul>
 {% for entry in collections.wiki %}
-  <li><a href="{{ entry.url }}">{{ entry.data.title }}</a></li>
+  <li><a href="{{ entry.url | url }}">{{ entry.data.title }}</a></li>
 {% endfor %}
 </ul>

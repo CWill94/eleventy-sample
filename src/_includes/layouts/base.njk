@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="{{ '/styles.css' | url }}" />
   </head>
   <body>
     <div class="wrap">
-      <nav><a href="/">Wiki Home</a></nav>
+      <nav><a href="{{ '/' | url }}">Wiki Home</a></nav>
       <main class="card">{{ content | safe }}</main>
     </div>
   </body>
