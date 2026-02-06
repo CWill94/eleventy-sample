@@ -1,18 +1,18 @@
 backend:
   name: github
-  repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME
+  repo: cwill94/eleventy-sample
   branch: main
   # Contributors authenticate with their own GitHub account credentials.
   # Host a Decap OAuth gateway and set it here.
-  base_url: https://YOUR_OAUTH_GATEWAY_DOMAIN
+  base_url: https://cwill94.github.io/eleventy-sample/admin
   auth_endpoint: /api/auth
 
 local_backend: true
 
 # Replace with your actual public Pages URL once deployed.
-site_url: https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME
+site_url: https://cwill94.github.io/eleventy-sample/
 
-display_url: https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME
+display_url: https://cwill94.github.io/eleventy-sample/
 
 media_folder: "src/uploads"
 public_folder: "/uploads"
