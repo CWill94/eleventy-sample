@@ -13,6 +13,13 @@ This project includes Decap CMS at `/admin`:
 - Admin UI: `/Users/umeworks/Desktop/eleventy-sample/src/admin/index.html`
 - CMS config: `/Users/umeworks/Desktop/eleventy-sample/src/admin/config.yml`
 
+### Login model (simple and account-based)
+
+With the GitHub backend, contributors log in using their own **GitHub account credentials** (GitHub OAuth).
+
+- No separate custom username/password database is stored in this repo.
+- Access control comes from GitHub repo permissions.
+
 ### Required config changes
 
 Edit `/Users/umeworks/Desktop/eleventy-sample/src/admin/config.yml` and replace:
@@ -31,7 +38,7 @@ Decap on GitHub Pages needs an OAuth gateway for GitHub auth. Configure your cho
 For local testing without the production OAuth gateway:
 
 - Run site: `npm run start`
-- Run Decap local backend proxy in another terminal: `npx decap-server`
+- Run Decap local backend proxy in another terminal: `npm run cms:proxy`
 
 Then open:
 
