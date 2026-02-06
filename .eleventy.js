@@ -51,6 +51,18 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => a.name.localeCompare(b.name));
   });
 
+  eleventyConfig.addCollection("sessionNotes", function (collectionApi) {
+    const pages = collectionApi
+      .getFilteredByTag("wiki")
+      .filter((page) => page.url && page.url.startsWith("/wiki/sessions/"));
+
+    return pages.sort((a, b) =>
+      String(b.data.title).localeCompare(String(a.data.title), undefined, {
+        numeric: true,
+      }),
+    );
+  });
+
   return {
     dir: {
       input: "src",

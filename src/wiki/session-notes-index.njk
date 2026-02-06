@@ -1,0 +1,23 @@
+---
+layout: layouts/wiki.njk
+title: Session Notes Index
+tags: [wiki]
+categories: [Session Notes, Campaign Structure]
+permalink: /wiki/session-notes-index/
+---
+<p>Master index for campaign session summaries.</p>
+
+<h2>Sessions</h2>
+<ul>
+{% for entry in collections.sessionNotes %}
+  <li><a href="{{ entry.url }}">{{ entry.data.title }}</a></li>
+{% endfor %}
+</ul>
+
+<h2>Notes</h2>
+<ul>
+  <li>Session 2 was not found as a primary heading in the source doc and is currently a placeholder.</li>
+  <li>Some sessions include both bullet notes and narrative recap material.</li>
+</ul>
+
+<p>Cross-reference: [[Campaign Source Notes]]</p>
