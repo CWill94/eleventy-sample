@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+---
+<article>
+  <h1>{{ title }}</h1>
+  {% if categories and categories.length %}
+    <p class="meta-row">
+      {% for category in categories %}
+        <a class="chip" href="/wiki/category/{{ category | slug }}/">{{ category }}</a>
+      {% endfor %}
+    </p>
+  {% endif %}
+  {{ content | safe }}
+
+  {% set incoming = collections.wikiBacklinks[page.url] %}
+  {% if incoming and incoming.length %}
+    <hr />
+    <h2>Linked from</h2>
+    <ul>
+      {% for entry in incoming %}
+        <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</article>

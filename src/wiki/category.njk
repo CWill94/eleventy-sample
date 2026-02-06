@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.wikiCategories
+  size: 1
+  alias: category
+permalink: "/wiki/category/{{ category.slug }}/"
+eleventyExcludeFromCollections: true
+---
+<h1>Category: {{ category.name }}</h1>
+<p class="subtle">{{ category.pages.length }} page{% if category.pages.length != 1 %}s{% endif %}</p>
+<ul>
+{% for entry in category.pages %}
+  <li><a href="{{ entry.url }}">{{ entry.data.title }}</a></li>
+{% endfor %}
+</ul>

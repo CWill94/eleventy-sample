@@ -1,0 +1,116 @@
+/* Keep a light-only palette so docs remain highly legible in screenshots/prints. */
+:root {
+  color-scheme: light;
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #d7dee8;
+  --link: #0f4ccf;
+  --link-hover: #0b3aa1;
+}
+
+/* Comfortable reading defaults; serif body gives a wiki/document feel. */
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top right, #e8eefc 0%, transparent 38%),
+    var(--bg);
+  line-height: 1.6;
+}
+
+/* Slightly narrow content width to keep line-length in the readable range. */
+.wrap {
+  max-width: 72ch;
+  margin: 0 auto;
+  padding: 2.2rem 1rem 3rem;
+}
+
+/* Keep navigation visually quiet so content remains primary. */
+nav {
+  margin-bottom: 1.25rem;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+}
+
+/* Card frame separates article content from the soft page background. */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.35rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+/* Blue links improve scanability in dense documentation text. */
+a {
+  color: var(--link);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* Slightly tighter heading rhythm keeps pages compact but readable. */
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  margin-top: 1.1em;
+}
+
+/* Prevent list bullets from hugging the edge in narrow viewports. */
+ul {
+  padding-left: 1.25rem;
+}
+
+/* Keep separators subtle to avoid visual noise between sections. */
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 1.4rem 0 1rem;
+}
+
+/* Small, neutral helper text keeps metadata visible without competing. */
+.subtle {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Chips make categories glanceable and clickable from every article. */
+.chip {
+  display: inline-block;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+  line-height: 1;
+  color: #0f3c94;
+  background: #e9f0ff;
+  border: 1px solid #c8d8fb;
+  border-radius: 999px;
+  padding: 0.28rem 0.55rem;
+  text-decoration: none;
+  margin-right: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.chip:hover {
+  background: #dbe8ff;
+  color: #0b2f72;
+}
+
+/* Tighten spacing between title and category row. */
+.meta-row {
+  margin-top: -0.25rem;
+  margin-bottom: 1rem;
+}
+
+/* Preserve compact spacing on phones while keeping comfortable tap targets. */
+@media (max-width: 640px) {
+  .card {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+}
